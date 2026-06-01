@@ -1,0 +1,152 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #020617 0%, #090d16 100%);
+    --game-neon: #a855f7;
+    --game-green: #22c55e;
+    --game-red: #ef4444;
+    --card-bg: rgba(15, 23, 42, 0.7);
+    --card-border: rgba(168, 85, 247, 0.25);
+    --text-main: #f8fafc;
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+body {
+    background: var(--bg-gradient); color: var(--text-main);
+    min-height: 100vh; display: flex; justify-content: center; align-items: center;
+    padding: 20px; overflow-x: hidden; position: relative;
+}
+
+.login-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(2, 6, 23, 0.9); backdrop-filter: blur(20px);
+    display: flex; justify-content: center; align-items: center; z-index: 9999; padding: 20px;
+}
+
+.login-card {
+    background: rgba(15, 23, 42, 0.85); border: 2px solid var(--game-neon);
+    padding: 35px 25px; border-radius: 28px; width: 100%; max-width: 390px;
+    text-align: center; box-shadow: 0 0 35px rgba(168, 85, 247, 0.3);
+}
+
+.login-card h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; margin-bottom: 8px; }
+
+.name-input {
+    width: 100%; background: rgba(0,0,0,0.5); border: 2px solid var(--card-border);
+    padding: 16px; border-radius: 16px; color: white; font-size: 1rem; font-weight: 600;
+    outline: none; text-align: center; margin: 10px 0 5px 0; transition: 0.3s;
+}
+
+.name-input:focus { border-color: var(--game-neon); box-shadow: 0 0 15px rgba(168, 85, 247, 0.2); }
+
+.start-game-btn, .action-main-btn {
+    width: 100%; background: linear-gradient(90deg, #a855f7, #ec4899);
+    color: white; border: none; padding: 16px; border-radius: 16px;
+    font-size: 0.95rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px;
+}
+
+.container { width: 100%; max-width: 430px; z-index: 10; margin: 0 auto !important; }
+
+.hud-bar {
+    display: flex; justify-content: space-between; align-items: center;
+    width: 100%; margin-bottom: 15px; background: rgba(0, 0, 0, 0.4);
+    border: 2px solid var(--card-border); padding: 12px 15px; border-radius: 16px; gap: 5px;
+}
+
+.live-status { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; }
+.pulse-dot { width: 8px; height: 8px; background: var(--game-green); border-radius: 50%; box-shadow: 0 0 10px var(--game-green); animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(0.9); opacity: 0.6; } 50% { transform: scale(1.1); opacity: 1; } }
+
+.switch-profile-btn, .back-hub-btn {
+    background: rgba(255, 255, 255, 0.05); border: 1px solid var(--card-border);
+    color: #cbd5e1; padding: 6px 12px; border-radius: 8px; font-size: 0.65rem;
+    font-weight: 700; cursor: pointer; transition: 0.2s;
+}
+.switch-profile-btn:hover, .back-hub-btn:hover { background: var(--game-neon); color: white; }
+
+.hud-level-tag { background: var(--game-neon); color: white; padding: 6px 10px; border-radius: 8px; font-size: 0.7rem; font-weight: 700; }
+
+.profile-card {
+    background: var(--card-bg); border: 2px solid var(--card-border);
+    border-radius: 24px; padding: 15px 20px; margin-bottom: 15px;
+    display: flex; align-items: center; gap: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.avatar { width: 70px; height: 70px; border-radius: 14px; border: 2px solid var(--game-neon); object-fit: cover; }
+.char-stats { flex-grow: 1; }
+.char-stats h1 { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; }
+
+.stat-bar-container { width: 100%; background: #1e293b; height: 6px; border-radius: 3px; margin-top: 5px; overflow: hidden; }
+.stat-bar-fill { height: 100%; background: linear-gradient(90deg, #a855f7, #ec4899); transition: width 0.3s; }
+
+.category-matrix { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin-bottom: 15px; }
+.cat-btn {
+    background: rgba(255, 255, 255, 0.02); border: 1px solid var(--card-border);
+    border-radius: 12px; padding: 8px 2px; font-size: 1.1rem; text-align: center; opacity: 0.4; pointer-events: none; transition: 0.3s;
+}
+.cat-btn span { display: block; font-size: 0.55rem; font-weight: 700; color: #94a3b8; margin-top: 2px; }
+.cat-btn.active { opacity: 1; background: rgba(168, 85, 247, 0.15); border-color: var(--game-neon); }
+
+.widget {
+    background: var(--card-bg); border: 2px solid var(--card-border);
+    border-radius: 24px; padding: 20px; margin-bottom: 15px; position: relative;
+}
+.widget-title { font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 700; margin-bottom: 12px; display: flex; justify-content: space-between; }
+.attempt-badge { font-size: 0.7rem; color: #f59e0b; background: rgba(245, 158, 11, 0.1); padding: 2px 8px; border-radius: 6px; border: 1px solid rgba(245, 158, 11, 0.2); font-weight: bold; }
+
+.quote-capture-area {
+    background: #0f172a; border-radius: 16px; padding: 20px; text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05); min-height: 110px;
+    display: flex; flex-direction: column; justify-content: center;
+}
+.quote-box { color: #f8fafc; font-size: 1rem; font-weight: 700; line-height: 1.6; min-height: 50px; }
+.quote-box span.blank-space { color: #f59e0b; text-decoration: underline; font-weight: 800; }
+
+.puzzle-options-box { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 15px; }
+.puzzle-opt-btn {
+    background: rgba(0, 0, 0, 0.4); border: 1px solid var(--card-border);
+    color: white; padding: 14px; border-radius: 14px; font-weight: 700; font-size: 0.85rem;
+    cursor: pointer; text-align: left; padding-left: 15px; display: flex; justify-content: space-between;
+}
+.puzzle-opt-btn.correct { background: rgba(34, 197, 94, 0.2) !important; border-color: var(--game-green) !important; color: var(--game-green); }
+.puzzle-opt-btn.wrong { background: rgba(239, 68, 68, 0.2) !important; border-color: var(--game-red) !important; color: var(--game-red); animation: shake 0.3s ease; }
+
+.quote-actions { display: flex; gap: 10px; margin-top: 15px; }
+.action-sub-btn {
+    flex: 1; background: rgba(255, 255, 255, 0.02); border: 2px solid var(--card-border);
+    color: #cbd5e1; padding: 12px; font-size: 0.75rem; font-weight: 700; border-radius: 14px;
+    cursor: pointer; text-transform: uppercase; display: flex; justify-content: center; align-items: center; gap: 5px;
+}
+
+.leaderboard-list { display: flex; flex-direction: column; gap: 8px; margin-top: 5px; }
+.lb-row {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(0, 0, 0, 0.3); padding: 10px 15px; border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.03); font-size: 0.8rem; font-weight: 600;
+}
+.lb-rank-name { display: flex; gap: 10px; align-items: center; }
+.lb-rank { color: var(--game-neon); font-weight: bold; width: 20px; }
+.lb-badge { background: rgba(168, 85, 247, 0.15); color: var(--game-neon); padding: 2px 8px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; }
+
+/* SLIDING PUZZLE MODULE SPECIFIC GRID */
+.puzzle-board-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px;
+}
+.puzzle-tile {
+    aspect-ratio: 1; background: rgba(168, 85, 247, 0.1); border: 2px solid var(--card-border);
+    border-radius: 16px; color: white; font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem; font-weight: bold; display: flex; justify-content: center;
+    align-items: center; cursor: pointer; transition: 0.2s;
+}
+.puzzle-tile:not(.empty-tile):hover { background: rgba(168, 85, 247, 0.3); box-shadow: 0 0 15px rgba(168,85,247,0.4); }
+.empty-tile { background: transparent !important; border: 2px dashed rgba(255,255,255,0.05) !important; cursor: default; }
+
+.level-up-splash {
+    position: fixed; top: 40%; left: 50%; transform: translate(-50%, -50%) scale(1);
+    background: rgba(0, 0, 0, 0.95); border: 3px solid var(--game-green); padding: 25px 45px;
+    border-radius: 20px; color: var(--game-green); font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.6rem; font-weight: 700; text-transform: uppercase; box-shadow: 0 0 50px rgba(34, 197, 94, 0.6); z-index: 9999; text-align: center;
+}
