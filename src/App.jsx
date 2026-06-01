@@ -12,9 +12,9 @@ import my_photoImg from './assets/my_photo.jpg';
 
 export default function App() {
     const { currentUser, leaderboard, logout } = useContext(AuthContext);
-    
+
     // States: 'hub', 'trivia', 'puzzle', 'sudoku', 'jigsaw'
-    const [gameMode, setGameMode] = useState('hub'); 
+    const [gameMode, setGameMode] = useState('hub');
 
     // Guard Clause: Agar user logged in nahi hai, toh direct Login Overlay matrix trigger hoga
     if (!currentUser) {
@@ -43,7 +43,7 @@ export default function App() {
 
                     {/* Profile Section featuring imported Avatar Node */}
                     <div className="profile-card">
-                        <img src={my_photoImg} alt="Avatar" style={{ borderRadius: '50%', objectFit: 'cover' }} />
+                        <img src={my_photoImg} alt="Avatar" className="avatar" />
                         <div className="char-stats">
                             <h1>{currentUser.name}</h1>
                             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.6rem', fontWeight: 700, color: '#a0aec0', marginTop: '5px' }}>
