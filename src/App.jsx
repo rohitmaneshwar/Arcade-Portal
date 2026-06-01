@@ -6,6 +6,7 @@ import TriviaGame from './Games/Trivia/TriviaGame';
 import SlidingPuzzle from './Games/Puzzle/SlidingPuzzle';
 import SudokuGame from './Games/Sudoku/SudokuGame';
 import JigsawGame from './Games/Jigsaw/JigsawGame';
+import avatarImg from './assets/my_photo.jpg';
 
 export default function App() {
     const { currentUser, leaderboard, logout } = useContext(AuthContext);
@@ -23,7 +24,7 @@ export default function App() {
     return (
         <>
             <ParticleBg />
-            
+
             {gameMode === 'hub' && (
                 <div class="container">
                     <div class="hud-bar">
@@ -32,15 +33,15 @@ export default function App() {
                     </div>
 
                     <div class="profile-card">
-                        <img src="./assets/my_photo.jpg" alt="Avatar" class="avatar" />
+                        <img src={my_photoImg} alt="Avatar" />
                         <div class="char-stats">
                             <h1>{currentUser.name}</h1>
-                            <div style={{display:'flex', justifyContent:'space-between', fontSize:'0.6rem', fontWeight:700, color:'#a0aec0', marginTop:'5px'}}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.6rem', fontWeight: 700, color: '#a0aec0', marginTop: '5px' }}>
                                 <span>RANK: RETRO GAMER</span>
                                 <span>{currentUser.currentXP || 0}/100 XP</span>
                             </div>
                             <div class="stat-bar-container">
-                                <div class="stat-bar-fill" style={{width: `${currentUser.currentXP || 0}%`}}></div>
+                                <div class="stat-bar-fill" style={{ width: `${currentUser.currentXP || 0}%` }}></div>
                             </div>
                         </div>
                     </div>
@@ -48,9 +49,9 @@ export default function App() {
                     <div class="widget">
                         <div class="widget-title">🕹️ Select Simulation Game</div>
                         <button class="action-main-btn" onClick={() => setGameMode('trivia')}>⚔️ Enter Trivia Dungeon</button>
-                        <button class="action-main-btn" style={{background:'linear-gradient(90deg, #3b82f6, #8b5cf6)'}} onClick={() => setGameMode('puzzle')}>🧩 Sliding Matrix Puzzle</button>
-                        <button className="action-main-btn" style={{background:'linear-gradient(90deg, #f59e0b, #eab308)'}} onClick={() => setGameMode('sudoku')}>🔢 Nano Cyber Sudoku</button>
-                        <button className="action-main-btn" style={{background:'linear-gradient(90deg, #06b6d4, #3b82f6)'}} onClick={() => setGameMode('jigsaw')}>🖼️ Cyber Jigsaw Image Assembly</button>
+                        <button class="action-main-btn" style={{ background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)' }} onClick={() => setGameMode('puzzle')}>🧩 Sliding Matrix Puzzle</button>
+                        <button className="action-main-btn" style={{ background: 'linear-gradient(90deg, #f59e0b, #eab308)' }} onClick={() => setGameMode('sudoku')}>🔢 Nano Cyber Sudoku</button>
+                        <button className="action-main-btn" style={{ background: 'linear-gradient(90deg, #06b6d4, #3b82f6)' }} onClick={() => setGameMode('jigsaw')}>🖼️ Cyber Jigsaw Image Assembly</button>
                     </div>
 
                     <div class="widget">
