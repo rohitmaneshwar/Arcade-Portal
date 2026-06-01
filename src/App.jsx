@@ -43,7 +43,7 @@ export default function App() {
 
                     {/* Profile Section featuring imported Avatar Node */}
                     <div className="profile-card">
-                        <img src={my_photoImg} alt="Avatar" className="avatar" />
+                        {/* <img src={my_photoImg} alt="Avatar" className="avatar" /> */}
                         <div className="char-stats">
                             <h1>{currentUser.name}</h1>
                             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.6rem', fontWeight: 700, color: '#a0aec0', marginTop: '5px' }}>
