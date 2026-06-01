@@ -1,16 +1,22 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 
+import gokuImg from '../../assets/goku.jpg';
+import narutoImg from '../../assets/naruto.jpg';
+import spidermanImg from '../../assets/spiderman.jpg';
+import luffyImg from '../../assets/luffy.jpg';
+import pikachuImg from '../../assets/pikachu.jpg';
+
 const GRID_SIZE = 3; // Exactly 9 boxes ($3 \times 3$)
 const TOTAL_PIECES = GRID_SIZE * GRID_SIZE; 
 
 // 🔥 100% Stable Static Anime and Cartoon Images Pool (Direct High-Speed Global CDN Links)
 const JIGSAW_LEVELS = [
-    { name: "Goku (Dragon Ball Z) ☄️", url: "src/goku.jpg" },
-    { name: "Naruto Uzumaki 🦊", url: "src/naruto.jpg" },
-    { name: "Spider-Man (Spider-Verse) 🕷️", url: "src/spiderman.jpg" },
-    { name: "Monkey D. Luffy 🏴‍☠️", url: "src/luffy.jpg" },
-    { name: "Cute Pikachu ⚡", url: "src/pikachu.jpg" }
+    { name: "Goku (Dragon Ball Z) ☄️", url: gokuImg },
+    { name: "Naruto Uzumaki 🦊", url: narutoImg },
+    { name: "Spider-Man (Spider-Verse) 🕷️", url: spidermanImg },
+    { name: "Monkey D. Luffy 🏴‍☠️", url: luffyImg },
+    { name: "Cute Pikachu ⚡", url: pikachuImg }
 ];
 
 export default function JigsawGame({ onBack }) {

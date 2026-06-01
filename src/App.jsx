@@ -32,7 +32,7 @@ export default function App() {
                     </div>
 
                     <div class="profile-card">
-                        <img src="my_photo.jpg" alt="Avatar" class="avatar" />
+                        <img src="assets/my_photo.jpg" alt="Avatar" class="avatar" />
                         <div class="char-stats">
                             <h1>{currentUser.name}</h1>
                             <div style={{display:'flex', justifyContent:'space-between', fontSize:'0.6rem', fontWeight:700, color:'#a0aec0', marginTop:'5px'}}>
