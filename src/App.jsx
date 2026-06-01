@@ -2,8 +2,8 @@ import React, { useState, useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
 import ParticleBg from './components/ParticleBg';
 import LoginOverlay from './components/LoginOverlay';
-import TriviaGame from './games/Trivia/TriviaGame';
-import SlidingPuzzle from './games/Puzzle/SlidingPuzzle';
+import TriviaGame from './Games/Trivia/TriviaGame';
+import SlidingPuzzle from './Games/Puzzle/SlidingPuzzle';
 import SudokuGame from './Games/Sudoku/SudokuGame';
 import JigsawGame from './Games/Jigsaw/JigsawGame';
 
